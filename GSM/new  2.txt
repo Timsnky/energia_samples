@@ -1,0 +1,21 @@
+Part A
+
+ 
+
+My solution was to send the string to UART_OutString which then sent it to UART_OutChar one character at a time
+
+ 
+
+Part B
+
+unsigned char String[10]; is local to the UART.c file not global, you store the result of your conversion in String. UART_OutUDec calls your conversion function then calls UART_OutString to print String
+
+ 
+
+Part C
+
+The same as part B store your result in String, UART_OutDistance calls your distance conversion function then also calls UART_OutString to print String
+
+ 
+
+Hope that is of some help
